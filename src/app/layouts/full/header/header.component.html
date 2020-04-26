@@ -1,0 +1,25 @@
+        
+<!-- ============================================================== -->
+<!-- Estilos en header.scss -->
+<!-- ============================================================== -->
+
+<!-- <a href="#" class=" m-r-20 hidden-sm-up" mat-raised-button color="warn">OpcionTest</a> -->
+<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5">
+    <mat-icon>toc</mat-icon>  
+    <!-- <img src="assets/images/users/1.jpg" alt="user" class="profile-pic">  -->
+</button>
+<mat-menu #profile="matMenu" class="mymegamenu">
+    <button mat-menu-item>
+        <mat-icon>settings</mat-icon> 
+        Configuracion 
+    </button>
+    <button mat-menu-item>
+        <mat-icon>account_box</mat-icon> 
+        Ayuda
+    </button>
+    <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon> 
+        Salir
+    </button>
+</mat-menu>
+

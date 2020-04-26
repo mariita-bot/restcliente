@@ -1,0 +1,22 @@
+<mat-card>
+	<mat-card-content>    
+		<mat-card-title>Mesas</mat-card-title>
+		<mat-grid-list cols="3" rowHeight="300">
+			<mat-grid-tile *ngFor="let mesa of Mesas">
+				<mat-card>
+					<mat-card-content>
+						<img mat-card-image src="assets/images/mesas/mesa{{mesa.Numero}}.png" alt="pp mesa{{mesa.Numero}}">
+					</mat-card-content>
+					<mat-card-actions>
+						<button mat-button>Estado:</button>
+						<button mat-button *ngIf="mesa.Estado === 1" color="primary">Disponible</button>
+						<button mat-button *ngIf="mesa.Estado === 0" color="warn">Ocupada</button>
+
+						<mat-slide-toggle [checked]="mesa.Estado === 1"></mat-slide-toggle>
+						<button mat-button (click)="mostrarMesaDetalle(mesa.Numero, mesa.Descripcion)"><mat-icon>info</mat-icon></button>
+					</mat-card-actions>
+				</mat-card>
+			</mat-grid-tile>
+		</mat-grid-list>
+	</mat-card-content>
+</mat-card>
