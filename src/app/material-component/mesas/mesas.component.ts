@@ -3,10 +3,10 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import { MesasService } from '../../services/mesas.service';
 import { Mesa } from 'src/app/interfaces/Imodels';
 
-export interface DialogDetalleData {
+/*export interface DialogDetalleData {
   noMesa: number;
   descripcion: string;
-}
+}*/
 
 @Component({
   selector: 'app-buttons',
@@ -51,7 +51,7 @@ export class MesasComponent implements OnInit {
 export class MesaDetalleDialog {
   constructor(
     public dialogRef: MatDialogRef<MesaDetalleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogDetalleData
+    //@Inject(MAT_DIALOG_DATA) public data: DialogDetalleData
   ) {}
 
   onNoClick(): void {
