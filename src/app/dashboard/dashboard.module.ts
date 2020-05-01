@@ -7,6 +7,8 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutes } from './dashboard.routing';
 import { ChartistModule } from 'ng-chartist';
 import { FullModule } from '../layouts/full/full.module';
+import { SpinnerComponent } from '../shared/spinner.component';
+import { StatsComponent } from '../screens/stats/stats.component';
 
 
 @NgModule({
@@ -19,6 +21,6 @@ import { FullModule } from '../layouts/full/full.module';
     ChartistModule,
     RouterModule.forChild(DashboardRoutes)
   ],
-  declarations: [ DashboardComponent ] 
+  declarations: [ DashboardComponent , SpinnerComponent, StatsComponent ] 
 })
 export class DashboardModule {}

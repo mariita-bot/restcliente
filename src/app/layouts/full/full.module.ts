@@ -14,6 +14,7 @@ import { SpinnerComponent } from '../../shared/spinner.component';
 import { MatListModule } from '@angular/material/list';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { FullRoutes } from './full.routing';
 
 
 @NgModule({
@@ -21,13 +22,13 @@ import { BrowserModule } from '@angular/platform-browser';
     FullComponent,
     AppHeaderComponent,
     AppSidebarComponent,
-    SpinnerComponent,
   ],
   imports: [
     CommonModule,
     DemoMaterialModule,
     RouterModule,
     SharedModule,
+    RouterModule.forChild(FullRoutes)
 
   ],
   exports : [
