@@ -8,7 +8,7 @@ import { DemoMaterialModule } from 'src/app/demo-material-module';
 
 
 @NgModule({
-  declarations: [ LoginScreenComponent ],
+  //declarations: [ LoginScreenComponent ],
   imports: [
     FullModule,
     DemoMaterialModule,
