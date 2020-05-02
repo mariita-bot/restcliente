@@ -8,7 +8,9 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { FullComponent } from './layouts/full/full.component';
+import { AppHeaderComponent } from './layouts/full/header/header.component';
+import { AppSidebarComponent } from './layouts/full/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DemoMaterialModule } from './demo-material-module';
 
@@ -16,11 +18,14 @@ import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
 
 import { MesasService } from './services/mesas.service';
-import { FullModule } from './layouts/full/full.module';
 
 @NgModule({
   declarations: [
     AppComponent,
+    FullComponent,
+    AppHeaderComponent,
+    SpinnerComponent,
+    AppSidebarComponent
   ],
   imports: [
     BrowserModule,

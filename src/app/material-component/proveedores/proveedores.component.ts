@@ -34,7 +34,7 @@ export class ProveedoresComponent implements OnInit {
 export class ProveedorAddDialog {
   constructor(
     public dialogRef: MatDialogRef<ProveedorAddDialog>,
-    //@Inject(MAT_DIALOG_DATA) public data: DialogDetalleData
+    @Inject(MAT_DIALOG_DATA) public data: DialogDetalleData
   ) {}
 
   onNoClick(): void {
