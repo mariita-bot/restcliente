@@ -17,12 +17,10 @@ import { SpinnerComponent } from './shared/spinner.component';
 
 import { MesasService } from './services/mesas.service';
 import { FullModule } from './layouts/full/full.module';
-import { MesasComponent } from './screens/mesas/mesas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MesasComponent
   ],
   imports: [
     BrowserModule,
