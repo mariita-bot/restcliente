@@ -9,7 +9,7 @@ export class LoginScreenComponent implements OnInit {
 
   constructor() { }
 
-  isLoading : Boolean ;
+  isLoading : boolean ;
 
   ngOnInit(): void {
     this.isLoading = true;
