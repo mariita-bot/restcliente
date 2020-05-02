@@ -1,0 +1,35 @@
+<div class="body-screen-login">
+  <div class="card-login">
+    <div><img class="login-img" src="assets/images/background/manatial-logo.png" alt="user"> </div>
+    <mat-card class="card-content-login">
+      <div *ngIf="isLoading" class="loading-container">
+        <mat-spinner></mat-spinner>
+      </div>
+
+      <div *ngIf="!isLoading" >
+        <div class="example-container">
+          <div class="form-container">
+            <form [formGroup]="loginForm" (submit)="submit()">
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Usuario </mat-label>
+                <input matInput formControlName="usuario" type="password">
+                <mat-error *ngIf="loginForm.controls.usuario.touched && loginForm.controls.usuario.invalid">
+                  <span *ngIf="loginForm.controls.usuario.errors.required">Ingrese usuario.</span>
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Contraseña
+                </mat-label>
+                <input matInput formControlName="password" type="password">
+                <mat-error *ngIf="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+                  <span *ngIf="loginForm.controls.password.errors.required">Ingrese contraseña.</span>
+                </mat-error>
+              </mat-form-field>
+              <button mat-raised-button color="primary" type="submit">Iniciar Sesion</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
