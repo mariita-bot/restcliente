@@ -4,7 +4,6 @@ import { LoginRoutes } from './login.routing';
 import { RouterModule } from '@angular/router';
 import { FullModule } from 'src/app/layouts/full/full.module';
 import { DemoMaterialModule } from 'src/app/demo-material-module';
-import { CommonModule } from '@angular/common';
 
 
 
@@ -12,10 +11,9 @@ import { CommonModule } from '@angular/common';
   declarations: [ LoginScreenComponent ],
   imports: [
     FullModule,
-    CommonModule,
     DemoMaterialModule,
     RouterModule.forChild(LoginRoutes),
-    
+
   ]
 })
 export class LoginScreenModule { }
