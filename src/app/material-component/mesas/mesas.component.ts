@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MesasService } from '../../services/mesas.service';
 import { Mesa } from 'src/app/interfaces/Imodels';
 
@@ -9,12 +9,12 @@ export interface DialogDetalleData {
 }
 
 @Component({
-  selector: 'app-buttons',
+  selector: 'app-mesas',
   templateUrl: './mesas.component.html',
   styleUrls: ['./mesas.component.scss']
 })
 export class MesasComponent implements OnInit {
-  
+
   Mesas: Mesa[];
 
   constructor(

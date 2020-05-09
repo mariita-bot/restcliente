@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Agregar proveedor</h1>
+<div mat-dialog-content>
+  <form id="addProvForm" [formGroup]="addProveedorForm" (submit)="submit()" >
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre del Proveedor</mat-label>
+      <input matInput formControlName="NombreProveedor" type="text" />
+      <mat-error *ngIf="addProveedorForm.controls.NombreProveedor.touched && addProveedorForm.controls.NombreProveedor.invalid">
+        <span *ngIf="addProveedorForm.controls.NombreProveedor.errors.required">Ingrese Nombre.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Direccion</mat-label>
+      <input matInput formControlName="Direccion" type="text" />
+      <mat-error *ngIf="addProveedorForm.controls.Direccion.touched && addProveedorForm.controls.Direccion.invalid">
+        <span *ngIf="addProveedorForm.controls.Direccion.errors.required">Ingrese Direccion.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Telefono</mat-label>
+      <input matInput formControlName="Telefono" type="text" />
+      <mat-error *ngIf="addProveedorForm.controls.Telefono.touched && addProveedorForm.controls.Telefono.invalid">
+        <span *ngIf="addProveedorForm.controls.Telefono.errors.required">Ingrese Telefono.</span>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button form="addProvForm" [disabled]="!addProveedorForm.valid">Agregar</button>
+</div>

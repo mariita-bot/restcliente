@@ -14,8 +14,8 @@ import { MaterialRoutes } from './material.routing';
 import { MesasComponent, MesaDetalleDialog } from './mesas/mesas.component';
 
 import { GridComponent } from './grid/grid.component';
-import { ProductosComponent } from './productos/productos.component';
-import { ProveedoresComponent } from './proveedores/proveedores.component';
+import { ProductosComponent, ProductosAddDialog } from './productos/productos.component';
+import { ProveedoresComponent, ProveedorAddDialog } from './proveedores/proveedores.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { ExpansionComponent } from './expansion/expansion.component';
@@ -50,7 +50,9 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
     MesaDetalleDialog,
     GridComponent,
     ProductosComponent,
+    ProductosAddDialog,
     ProveedoresComponent,
+    ProveedorAddDialog,
     TabsComponent,
     StepperComponent,
     ExpansionComponent,

@@ -12,9 +12,9 @@
             <form [formGroup]="loginForm" (submit)="submit()">
               <mat-form-field class="form-field" appearance="outline">
                 <mat-label> Usuario </mat-label>
-                <input matInput formControlName="usuario" type="password">
-                <mat-error *ngIf="loginForm.controls.usuario.touched && loginForm.controls.usuario.invalid">
-                  <span *ngIf="loginForm.controls.usuario.errors.required">Ingrese usuario.</span>
+                <input matInput formControlName="username" type="text">
+                <mat-error *ngIf="loginForm.controls.username.touched && loginForm.controls.username.invalid">
+                  <span *ngIf="loginForm.controls.username.errors.required">Ingrese usuario.</span>
                 </mat-error>
               </mat-form-field>
               <mat-form-field class="form-field" appearance="outline">

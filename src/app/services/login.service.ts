@@ -7,10 +7,11 @@ import { map } from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
-export class MesasService {
+export class LoginService {
   constructor(private httpClient: HttpClient) {}
 
-  public getMesas(): Observable<any> {
-    return this.httpClient.get(url + "/api/mesa").pipe(map((res: any) => res));
+  public postLogin(formData: any): Observable<any> {
+    console.log(formData)
+    return this.httpClient.post(url + "/auth/login", formData).pipe(map((res: any) => res));
   }
 }

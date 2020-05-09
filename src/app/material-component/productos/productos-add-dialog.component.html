@@ -1,0 +1,38 @@
+<h1 mat-dialog-title>Agregar producto</h1>
+<div mat-dialog-content>
+  <form id="addProdForm" [formGroup]="addProductoForm" (submit)="submit()" >
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre del Producto</mat-label>
+      <input matInput formControlName="NombreProducto" type="text" />
+      <mat-error *ngIf="addProductoForm.controls.NombreProducto.touched && addProductoForm.controls.NombreProducto.invalid">
+        <span *ngIf="addProductoForm.controls.NombreProducto.errors.required">Ingrese nombre de producto.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Precio de Venta</mat-label>
+      <input matInput formControlName="PrecioVenta" type="number" />
+      <mat-error *ngIf="addProductoForm.controls.PrecioVenta.touched && addProductoForm.controls.PrecioVenta.invalid">
+        <span *ngIf="addProductoForm.controls.PrecioVenta.errors.required">Ingrese precio de venta.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-checkbox style="padding-bottom: 6px;" formControlName="Estado">Disponibilidad</mat-checkbox>
+    <mat-form-field appearance="outline">
+      <mat-label>Descripcion</mat-label>
+      <input matInput formControlName="Descripcion" type="text" />
+      <mat-error *ngIf="addProductoForm.controls.Descripcion.touched && addProductoForm.controls.Descripcion.invalid">
+        <span *ngIf="addProductoForm.controls.Descripcion.errors.required">Ingrese descripcion.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Tamaño</mat-label>
+      <input matInput formControlName="Tamanio" type="number" />
+      <mat-error *ngIf="addProductoForm.controls.Tamanio.touched && addProductoForm.controls.Tamanio.invalid">
+        <span *ngIf="addProductoForm.controls.Tamanio.errors.required">Ingrese tamanio.</span>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button form="addProdForm" [disabled]="!addProductoForm.valid">Agregar</button>
+</div>

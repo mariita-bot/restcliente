@@ -5,18 +5,16 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators'
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class ProveedorService {
   constructor(private httpClient: HttpClient) {}
 
   public getProveedores(): Observable<any> {
-      return this.httpClient.get(url + "/proveedor").pipe(map((res: any) => res));
+    return this.httpClient.get(url + "/api/proveedor").pipe(map((res: any) => res));
   }
 
-  // return this.http.get(url + "/proveedor",{})
-
-//   public postProveedor(): any {
-//       this.httpClient.post()
-//   }
+  public saveProveedor(formPost: any): Observable<any> {
+    return this.httpClient.post(url + "/api/proveedor", formPost).pipe(map((res: any) => res));
+  }
 }
