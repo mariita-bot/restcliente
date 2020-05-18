@@ -84,6 +84,38 @@ export interface StockProducto {
     Precio_Entrada: number;
 }
 
+export interface CajaChica {
+  IdCajaChica: number;
+  CantidadDeApertura: number;
+  CantidadDeCierre: number;
+  created_at: Date;
+  closed_at: Date;
+}
+
+export interface FlujoDinero {
+  IdFlujoDinero: number;
+  Usuario_Nombre: string;
+  Ingreso_cordoba: number;
+  Egreso_cordoba: number;
+  Saldo: number;
+  Observaciones: string;
+  CajaChicaIdCajaChica: number;
+}
+
+export interface Billete{
+  IdBillete: number;
+  Nombre: string;
+  Valor: number;
+}
+
+export interface FlujoDineroItem {
+  IdFlujoDineroItem: number;
+  Cantidad: number;
+  Denominacion: string;
+  FlujoDineroItemIdFlujoDineroItem: number;
+  BilleteIdBillete: number;
+}
+
 // Api format
 
 export interface ApiFormat {
