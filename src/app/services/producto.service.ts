@@ -17,4 +17,8 @@ export class ProductoService {
   public saveProducto(formPost: any): Observable<any> {
     return this.httpClient.post(url + "/api/producto", formPost).pipe(map((res: any) => res));
   }
+
+  public updateProducto(formPost: any): Observable<any> {
+    return this.httpClient.put(url + "/api/producto", formPost).pipe(map((res: any) => res));
+  }
 }
