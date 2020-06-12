@@ -1,0 +1,46 @@
+<h1 mat-dialog-title>Agregar existencias a {{data.NombreProducto}}</h1>
+<div mat-dialog-content>
+  <form id="addProdForm" [formGroup]="addExistenciaProductoForm" (submit)="submit()" >
+    <mat-form-field appearance="outline">
+      <mat-label>Proveedor</mat-label>
+      <mat-select formControlName="IdProveedor">
+        <mat-option *ngFor="let prov of proveedores" value="{{prov.IdProveedor}}">{{prov.NombreProveedor}}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="addExistenciaProductoForm.controls.IdProveedor.touched && addExistenciaProductoForm.controls.IdProveedor.invalid">
+        <span *ngIf="addExistenciaProductoForm.controls.IdProveedor.errors.required">Ingrese proveedor!.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cantidad</mat-label>
+      <input matInput formControlName="Cantidad" type="number" />
+      <mat-error *ngIf="addExistenciaProductoForm.controls.Cantidad.touched && addExistenciaProductoForm.controls.Cantidad.invalid">
+        <span *ngIf="addExistenciaProductoForm.controls.Cantidad.errors.required">Ingrese cantidad!.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Precio de Entrada</mat-label>
+      <input matInput formControlName="PrecioEntrada" type="number" />
+      <mat-error *ngIf="addExistenciaProductoForm.controls.PrecioEntrada.touched && addExistenciaProductoForm.controls.PrecioEntrada.invalid">
+        <span *ngIf="addExistenciaProductoForm.controls.PrecioEntrada.errors.required">Ingrese precio de entrada!.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Observacion</mat-label>
+      <input matInput formControlName="Observacion" type="text" />
+      <mat-error *ngIf="addExistenciaProductoForm.controls.Observacion.touched && addExistenciaProductoForm.controls.Observacion.invalid">
+        <span *ngIf="addExistenciaProductoForm.controls.Observacion.errors.required">Ingrese Observacion!.</span>
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Monto Total</mat-label>
+      <input matInput formControlName="MontoTotal" type="number" />
+      <mat-error *ngIf="addExistenciaProductoForm.controls.MontoTotal.touched && addExistenciaProductoForm.controls.MontoTotal.invalid">
+        <span *ngIf="addExistenciaProductoForm.controls.MontoTotal.errors.required">Ingrese Monto total.</span>
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button form="addProdForm" [disabled]="!addExistenciaProductoForm.valid">Agregar</button>
+</div>

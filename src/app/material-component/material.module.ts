@@ -13,12 +13,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialRoutes } from './material.routing';
 import { MesasComponent, MesaDetalleDialog } from './mesas/mesas.component';
 
-import { GridComponent } from './grid/grid.component';
-import {
-  ProductosComponent,
-  ProductosAddDialog,
-  ProductosEditDialog
-} from './productos/productos.component';
+import { PedidosComponent } from './pedido/pedido.component';
+import {ProductosComponent } from './productos/productos.component';
+import { ProductosAddDialog } from './productos/addDialog/productos-add-dialog.component';
+import { ProductosEditDialog } from './productos/editDialog/productos-edit-dialog.component';
+import { ProductosAddExistenciaDialog } from './productos/addExistencia/producto-add-existencia.component';
 import {
   ProveedoresComponent,
   ProveedorAddDialog
@@ -55,10 +54,11 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
   declarations: [
     MesasComponent,
     MesaDetalleDialog,
-    GridComponent,
+    PedidosComponent,
     ProductosComponent,
     ProductosAddDialog,
     ProductosEditDialog,
+    ProductosAddExistenciaDialog,
     ProveedoresComponent,
     ProveedorAddDialog,
     TabsComponent,

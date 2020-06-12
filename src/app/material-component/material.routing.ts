@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { MesasComponent } from './mesas/mesas.component';
-import { GridComponent } from './grid/grid.component';
+import { PedidosComponent } from './pedido/pedido.component';
 import { ProductosComponent } from './productos/productos.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { TabsComponent } from './tabs/tabs.component';
@@ -23,8 +23,8 @@ export const MaterialRoutes: Routes = [
     component: MesasComponent
   },
   {
-    path: 'grid',
-    component: GridComponent
+    path: 'pedidos',
+    component: PedidosComponent
   },
   {
     path: 'productos',

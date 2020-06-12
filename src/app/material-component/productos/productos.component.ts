@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog'
 import { ProductoService } from '../../services/producto.service';
 import { Producto } from '../../interfaces/Imodels';
+import { ProductosAddDialog } from './addDialog/productos-add-dialog.component';
+import { ProductosEditDialog } from './editDialog/productos-edit-dialog.component';
+import { ProductosAddExistenciaDialog } from './addExistencia/producto-add-existencia.component';
 
 @Component({
   selector: 'app-productos',
@@ -16,7 +19,8 @@ export class ProductosComponent implements OnInit {
   constructor(
     private productoService: ProductoService,
     private addProductoDiag: MatDialog,
-    private editProductoDiag: MatDialog
+    private editProductoDiag: MatDialog,
+    private addExistenciaDiag: MatDialog
   ) {}
 
   ngOnInit() {
@@ -52,101 +56,16 @@ export class ProductosComponent implements OnInit {
       this.updateProductos();
     });
   }
-}
 
-
-// Dialogo para agregar productos
-
-@Component({
-  selector: 'app-producto-add-producto',
-  templateUrl: './productos-add-dialog.component.html',
-  styleUrls: ['./productos-add-dialog.component.scss']
-})
-export class ProductosAddDialog implements OnInit {
-  addProductoForm: FormGroup
-  estadoProducto: true;
-
-  constructor(
-    private formBuilder: FormBuilder,
-    public dialogRef: MatDialogRef<ProductosAddDialog>,
-    private productoService: ProductoService,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
-
-  ngOnInit() {
-    this.addProductoForm = this.formBuilder.group({
-      NombreProducto: [null, Validators.required],
-      PrecioVenta: [null, Validators.pattern("^[0-9]*$")],
-      Estado: [true, Validators.required],
-      Descripcion: [null, Validators.required],
-      Tamanio: [null, Validators.pattern("^[0-9]*$")]
+  openAgregarExistencia(producto: any) {
+    const addExistenciaDiagRef = this.addExistenciaDiag.open(ProductosAddExistenciaDialog, {
+      width: '600px',
+      height: '515px',
+      data: producto
     });
-  }
 
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-  submit() {
-    if(!this.addProductoForm.valid){
-      return;
-    }
-    this.productoService.saveProducto(this.addProductoForm.value).subscribe((res: any) => {
-      if(res){
-        this.dialogRef.close();
-      }
-    });
-  }
-}
-
-// Dialogo para editar productos
-
-@Component({
-  selector: 'app-producto-edit-producto',
-  templateUrl: './productos-edit-dialog.component.html',
-  styleUrls: ['./productos-edit-dialog.component.scss']
-})
-export class ProductosEditDialog implements OnInit {
-  editProductoForm: FormGroup
-  estadoProducto: true;
-
-  constructor(
-    private formBuilder: FormBuilder,
-    public dialogRef: MatDialogRef<ProductosAddDialog>,
-    private productoService: ProductoService,
-    @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
-
-  ngOnInit() {
-    const productoEstado = this.data.Estado === 1 ? true : false;
-
-    this.editProductoForm = this.formBuilder.group({
-      NombreProducto: [this.data.NombreProducto, Validators.required],
-      PrecioVenta: [this.data.PrecioVenta, Validators.pattern("^[0-9]*$")],
-      Estado: [productoEstado, Validators.required],
-      Descripcion: [this.data.Descripcion, Validators.required],
-      Tamanio: [this.data.Tamanio, Validators.pattern("^[0-9]*$")]
-    });
-  }
-
-  onNoClick(): void {
-    this.dialogRef.close();
-  }
-
-  submit() {
-    if(!this.editProductoForm.valid){
-      return;
-    }
-
-    const productoData = {
-      IdProducto: this.data.IdProducto,
-      ...this.editProductoForm.value
-    }
-
-    this.productoService.updateProducto(productoData).subscribe((res: any) => {
-      if(res){
-        this.dialogRef.close();
-      }
+    addExistenciaDiagRef.afterClosed().subscribe(result => {
+      console.log("Add existencia dialog closed!");
     });
   }
 }
