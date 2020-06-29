@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { PedidoService } from '../../services/pedido.service';
 import { ProductoService } from '../../services/producto.service';
+import { PedidosAddDialog } from './addPedido/pedido-add.component';
 
 const pedidos: any = [
   {
@@ -8,7 +10,7 @@ const pedidos: any = [
     Estado: 1,
     Observacion: "Undefined"
   }
-]
+];
 
 @Component({
   selector: 'app-pedidos',
@@ -23,19 +25,30 @@ export class PedidosComponent implements OnInit {
 
   constructor(
     private pedidoService: PedidoService,
-    private productoService: ProductoService
+    private productoService: ProductoService,
+    private addPedidoDialog: MatDialog
   ) { }
 
   ngOnInit(): void {
-    this.productoService.getProductos().subscribe((res: any) => {
-      this.productosSource = res;
-    })
+    this.updatePedidos();
+  }
 
-    this.pedidosSource = pedidos;
+  updatePedidos() {
+    this.pedidoService.getPedidos().subscribe((res: any) => {
+      this.pedidosSource = res;
+    })
   }
 
   addPedido() {
+    const addPedidoRef = this.addPedidoDialog.open(PedidosAddDialog, {
+      width: '600px',
+      height: '492px',
+      data: {}
+    });
 
+    addPedidoRef.afterClosed().subscribe(result => {
+      this.updatePedidos();
+    })
   }
 
 }

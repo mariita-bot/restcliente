@@ -45,6 +45,11 @@
 									<td mat-cell *matCellDef="let element"> {{element.Descripcion}} </td>
                 </ng-container>
 
+                <ng-container matColumnDef="Cantidad">
+									<th mat-header-cell *matHeaderCellDef> Cantidad </th>
+									<td mat-cell *matCellDef="let element"> {{getCantidad(element.ProveeProductos)}} </td>
+                </ng-container>
+
                 <ng-container matColumnDef="Tamanio">
 									<th mat-header-cell *matHeaderCellDef> Tamaño </th>
 									<td mat-cell *matCellDef="let element"> {{element.Tamanio}} </td>

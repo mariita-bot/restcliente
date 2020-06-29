@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>Agregar producto</h1>
+<div mat-dialog-content>
+  <form id="addPedidoForm" [formGroup]="addPedidoForm" (submit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Producto</mat-label>
+      <mat-select formControlName="IdProducto">
+        <mat-option *ngFor="let prod of productos" value="{{prod.IdProducto}}">{{prod.NombreProducto}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Cantidad</mat-label>
+      <input matInput formControlName="cantidadToBuy" type="number" />
+    </mat-form-field>
+    <div style="padding: 0 0.70em 0.70em;">
+      <button mat-raised-button color="primary" (click)="addProductoToBuy()">Agregar</button>
+      <table mat-table [dataSource]="productoLlevar" style="width: 100%;" class="mat-elevation-z8">
+        <ng-container matColumnDef="IdProducto">
+          <th mat-header-cell *matHeaderCellDef> IdProducto </th>
+          <td mat-cell *matCellDef="let element"> {{element.IdProducto}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Cantidad">
+          <th mat-header-cell *matHeaderCellDef> Cantidad </th>
+          <td mat-cell *matCellDef="let element"> {{element.Cantidad}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Observacion</mat-label>
+      <input matInput formControlName="Observacion" type="text" />
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+  <button mat-button form="addProdForm" [disabled]="!addPedidoForm.valid">Agregar</button>
+</div>

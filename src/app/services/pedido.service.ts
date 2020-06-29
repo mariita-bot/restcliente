@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators'
 export class PedidoService {
   constructor(private httpClient: HttpClient) {}
 
-  public getPedido(): Observable<any> {
+  public getPedidos(): Observable<any> {
     return this.httpClient.get(url + "/api/pedido").pipe(map((res: any) => res));
   }
 

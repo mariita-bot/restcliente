@@ -6,7 +6,7 @@ import { ProveedorService } from '../../../services/proveedor.service';
 import { ProveeProductoService } from '../../../services/proveeproducto.service';
 
 @Component({
-  selector: 'app-producto-edit-producto',
+  selector: 'app-producto-add-producto',
   templateUrl: './productos-add-existencia-dialog.component.html',
   styleUrls: ['./productos-add-existencia-dialog.component.scss']
 })

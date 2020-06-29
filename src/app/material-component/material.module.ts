@@ -14,6 +14,7 @@ import { MaterialRoutes } from './material.routing';
 import { MesasComponent, MesaDetalleDialog } from './mesas/mesas.component';
 
 import { PedidosComponent } from './pedido/pedido.component';
+import { PedidosAddDialog } from './pedido/addPedido/pedido-add.component';
 import {ProductosComponent } from './productos/productos.component';
 import { ProductosAddDialog } from './productos/addDialog/productos-add-dialog.component';
 import { ProductosEditDialog } from './productos/editDialog/productos-edit-dialog.component';
@@ -55,6 +56,7 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
     MesasComponent,
     MesaDetalleDialog,
     PedidosComponent,
+    PedidosAddDialog,
     ProductosComponent,
     ProductosAddDialog,
     ProductosEditDialog,

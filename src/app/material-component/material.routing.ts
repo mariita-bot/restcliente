@@ -34,52 +34,52 @@ export const MaterialRoutes: Routes = [
     path: 'proveedores',
     component: ProveedoresComponent
   },
-  {
-    path: 'tabs',
-    component: TabsComponent
-  },
-  {
-    path: 'stepper',
-    component: StepperComponent
-  },
-  {
-    path: 'expansion',
-    component: ExpansionComponent
-  },
-  {
-    path: 'chips',
-    component: ChipsComponent
-  },
-  {
-    path: 'toolbar',
-    component: ToolbarComponent
-  },
-  {
-    path: 'progress-snipper',
-    component: ProgressSnipperComponent
-  },
-  {
-    path: 'progress',
-    component: ProgressComponent
-  },
-  {
-    path: 'dialog',
-    component: DialogComponent
-  },
-  {
-    path: 'tooltip',
-    component: TooltipComponent
-  },
-  {
-    path: 'snackbar',
-    component: SnackbarComponent
-  },
-  {
-    path: 'slider',
-    component: SliderComponent
-  },
-  {
-    path: 'slide-toggle',
-    component: SlideToggleComponent
-  }
+  // {
+  //   path: 'tabs',
+  //   component: TabsComponent
+  // },
+  // {
+  //   path: 'stepper',
+  //   component: StepperComponent
+  // },
+  // {
+  //   path: 'expansion',
+  //   component: ExpansionComponent
+  // },
+  // {
+  //   path: 'chips',
+  //   component: ChipsComponent
+  // },
+  // {
+  //   path: 'toolbar',
+  //   component: ToolbarComponent
+  // },
+  // {
+  //   path: 'progress-snipper',
+  //   component: ProgressSnipperComponent
+  // },
+  // {
+  //   path: 'progress',
+  //   component: ProgressComponent
+  // },
+  // {
+  //   path: 'dialog',
+  //   component: DialogComponent
+  // },
+  // {
+  //   path: 'tooltip',
+  //   component: TooltipComponent
+  // },
+  // {
+  //   path: 'snackbar',
+  //   component: SnackbarComponent
+  // },
+  // {
+  //   path: 'slider',
+  //   component: SliderComponent
+  // },
+  // {
+  //   path: 'slide-toggle',
+  //   component: SlideToggleComponent
+  // }
 ];

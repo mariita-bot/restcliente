@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog'
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
 import { ProductoService } from '../../services/producto.service';
-import { Producto } from '../../interfaces/Imodels';
 import { ProductosAddDialog } from './addDialog/productos-add-dialog.component';
 import { ProductosEditDialog } from './editDialog/productos-edit-dialog.component';
 import { ProductosAddExistenciaDialog } from './addExistencia/producto-add-existencia.component';
+import { ProveeProductoService } from 'src/app/services/proveeproducto.service';
 
 @Component({
   selector: 'app-productos',
@@ -13,11 +13,12 @@ import { ProductosAddExistenciaDialog } from './addExistencia/producto-add-exist
   styleUrls: ['./productos.component.scss']
 })
 export class ProductosComponent implements OnInit {
-  displayedColumns: string[] = ['IdProducto', 'NombreProducto', 'PrecioVenta', 'Estado', 'Descripcion', 'Tamanio', 'Opciones'];
-  productosSource: Producto[];
+  displayedColumns: string[] = ['IdProducto', 'NombreProducto', 'PrecioVenta', 'Estado', 'Descripcion', 'Cantidad', 'Tamanio', 'Opciones'];
+  productosSource: any[];
 
   constructor(
     private productoService: ProductoService,
+    private proveeProductoService: ProveeProductoService,
     private addProductoDiag: MatDialog,
     private editProductoDiag: MatDialog,
     private addExistenciaDiag: MatDialog
@@ -27,8 +28,16 @@ export class ProductosComponent implements OnInit {
     this.updateProductos();
   }
 
+  getCantidad(element: any): number {
+    let cant = 0;
+    element.forEach((e: any) => {
+      cant += e.Cantidad;
+    });
+    return cant;
+  }
+
   updateProductos() {
-    this.productoService.getProductos().subscribe((res: Producto[]) => {
+    this.productoService.getProductos().subscribe((res: any[]) => {
       this.productosSource = res;
     });
   }
@@ -65,7 +74,7 @@ export class ProductosComponent implements OnInit {
     });
 
     addExistenciaDiagRef.afterClosed().subscribe(result => {
-      console.log("Add existencia dialog closed!");
+      this.updateProductos();
     });
   }
 }
