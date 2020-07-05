@@ -23,6 +23,7 @@ import {
   ProveedoresComponent,
   ProveedorAddDialog
 } from './proveedores/proveedores.component';
+import { ReportesComponent } from './reportes/reportes.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { ExpansionComponent } from './expansion/expansion.component';
@@ -63,6 +64,7 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
     ProductosAddExistenciaDialog,
     ProveedoresComponent,
     ProveedorAddDialog,
+    ReportesComponent,
     TabsComponent,
     StepperComponent,
     ExpansionComponent,

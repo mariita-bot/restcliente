@@ -11,7 +11,7 @@ import { ProveeProductoService } from '../../../services/proveeproducto.service'
   styleUrls: ['./productos-add-existencia-dialog.component.scss']
 })
 export class ProductosAddExistenciaDialog implements OnInit {
-  addExistenciaProductoForm: FormGroup
+  addExistenciaProductoForm: FormGroup;
   estadoProducto: true;
   proveedores: any;
 

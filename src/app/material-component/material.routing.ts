@@ -16,6 +16,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+import { ReportesComponent } from './reportes/reportes.component';
 
 export const MaterialRoutes: Routes = [
   {
@@ -33,6 +34,10 @@ export const MaterialRoutes: Routes = [
   {
     path: 'proveedores',
     component: ProveedoresComponent
+  },
+  {
+    path: 'reportes',
+    component: ReportesComponent
   },
   // {
   //   path: 'tabs',

@@ -13,6 +13,8 @@ const MENUITEMS = [
   { state: 'pedidos', type: 'link', name: 'Pedidos', icon: 'view_comfy' },
   { state: 'productos', type: 'link', name: 'Productos', icon: 'view_list' },
   { state: 'proveedores', type: 'link', name: 'Proveedores', icon: 'view_headline' },
+  { state: 'reportes', type: 'link', name: 'Reportes', icon: 'view_headline' },
+
   // { state: 'tabs', type: 'link', name: 'Tabs', icon: 'tab' },
   // { state: 'stepper', type: 'link', name: 'Stepper', icon: 'web' },
   // {
