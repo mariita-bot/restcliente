@@ -1,9 +1,17 @@
 <div id="productSidenav" class="p-selector-sidenav">
-  <a href="javascript:void(0)" class="closebtn">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+  <ul>
+    <li *ngFor="let prod of productos">
+      <span matBadge="{{getCantidad(prod.ProveeProductos)}}" matBadgeOverlap="false">{{prod.NombreProducto}}</span>
+      <div>
+        <mat-form-field class="formInputField" appearance="outline">
+          <input #ref1 matInput type="number">
+          <button (click)="addProductoToBuy(ref1, prod)" style="float: right;" mat-icon-button aria-label="btnss">
+            <mat-icon>arrow_forward_ios</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </li>
+  </ul>
 </div>
 
 <h1 mat-dialog-title>Agregar pedido</h1>
@@ -15,18 +23,12 @@
         <mat-option *ngFor="let mesa of mesas" value="{{mesa.Numero}}">{{mesa.Numero}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Producto</mat-label>
-      <mat-select formControlName="IdProducto">
-        <mat-option *ngFor="let prod of productos" value="{{prod.IdProducto}}">{{prod.NombreProducto}}</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
+    <!-- <mat-form-field appearance="outline">
       <mat-label>Cantidad</mat-label>
       <input matInput formControlName="cantidadToBuy" type="number" />
-    </mat-form-field>
+    </mat-form-field> -->
     <div style="padding: 0 0.70em 0.70em;">
-      <button mat-raised-button color="primary" (click)="addProductoToBuy()">Agregar</button>
+      <button mat-raised-button color="primary" (click)="limpiarTablaPedidos()">Limpiar</button>
       <table mat-table [dataSource]="productoLlevar" style="width: 100%;" class="mat-elevation-z8">
         <ng-container matColumnDef="NombreProducto">
           <th mat-header-cell *matHeaderCellDef> Nombre </th>
@@ -41,7 +43,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </div>
-    <div>TOTAL: C$45</div>
+    <div>TOTAL: C${{montoTotal}}</div>
     <mat-form-field appearance="outline">
       <mat-label>Observacion</mat-label>
       <input matInput formControlName="Observacion" type="text" />
@@ -50,5 +52,5 @@
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Cerrar</button>
-  <button mat-button form="addProdForm" [disabled]="!addPedidoForm.valid">Agregar</button>
+  <button mat-button (click)="submit()" form="addProdForm" [disabled]="!addPedidoForm.valid">Agregar</button>
 </div>

@@ -39,6 +39,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatNativeDateModule } from '@angular/material/core';
 import {MatRippleModule} from '@angular/material/core';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkAccordionModule} from '@angular/cdk/accordion';
@@ -94,6 +95,7 @@ import {PortalModule} from '@angular/cdk/portal';
     OverlayModule,
     PlatformModule,
     PortalModule,
+    MatBadgeModule
   ]
 })
 export class DemoMaterialModule {}

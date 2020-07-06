@@ -3,14 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 import { PedidoService } from '../../services/pedido.service';
 import { ProductoService } from '../../services/producto.service';
 import { PedidosAddDialog } from './addPedido/pedido-add.component';
-
-const pedidos: any = [
-  {
-    IdPedido: 1,
-    Estado: 1,
-    Observacion: "Undefined"
-  }
-];
+import { VerPedidoComponent } from './verPedido/verpedido.component';
 
 @Component({
   selector: 'app-pedidos',
@@ -19,14 +12,15 @@ const pedidos: any = [
 })
 export class PedidosComponent implements OnInit {
 
-  displayedColumns: string[] = ['IdPedido', 'Estado', 'Observacion' ];
+  displayedColumns: string[] = ['IdPedido', 'MesaNumero', 'Estado', 'Observacion', 'Opciones' ];
   pedidosSource: any;
   productosSource: any;
 
   constructor(
     private pedidoService: PedidoService,
     private productoService: ProductoService,
-    private addPedidoDialog: MatDialog
+    private addPedidoDialog: MatDialog,
+    private verPedidoDialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -37,6 +31,28 @@ export class PedidosComponent implements OnInit {
     this.pedidoService.getPedidos().subscribe((res: any) => {
       this.pedidosSource = res;
     })
+  }
+
+  facturarPedido(pedido: any) {
+
+  }
+
+  pagarPedido(pedido: any) {
+    this.pedidoService.pagarPedido(pedido).subscribe((res: any) => {
+      this.updatePedidos();
+    });
+  }
+
+  verDetallesPedido(pedido: any) {
+    const verPedido = this.verPedidoDialog.open(VerPedidoComponent, {
+      width: '600px',
+      height: '492px',
+      data: pedido
+    });
+
+    verPedido.afterClosed().subscribe(result => {
+      this.updatePedidos();
+    });
   }
 
   addPedido() {

@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Mesa #{{data.MesaNumero}}</h1>
+<div mat-dialog-content>
+  <div style="padding: 0 0.70em 0.70em;">
+    <table class="tablePedidos">
+      <tr>
+        <th>Nombre</th>
+        <th>Cantidad</th>
+        <th>Subtotal</th>
+      </tr>
+      <ng-container *ngFor="let pedido of pedidoSource">
+        <tr *ngFor="let pedidoDetalle of pedido">
+          <td>{{pedidoDetalle.Producto.NombreProducto}}</td>
+          <td>{{pedidoDetalle.Cantidad}}</td>
+          <td>{{pedidoDetalle.Subtotal}}</td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cerrar</button>
+</div>

@@ -11,7 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { MaterialRoutes } from './material.routing';
-import { MesasComponent, MesaDetalleDialog } from './mesas/mesas.component';
+import { MesasComponent } from './mesas/mesas.component';
+import { MesaDetalleDialog } from './mesas/mesadetalle/mesa-detalle-dialog.component';
 
 import { PedidosComponent } from './pedido/pedido.component';
 import { PedidosAddDialog } from './pedido/addPedido/pedido-add.component';
@@ -39,6 +40,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { SliderComponent } from './slider/slider.component';
 import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
+import { VerPedidoComponent } from './pedido/verPedido/verpedido.component';
 
 @NgModule({
   imports: [
@@ -65,6 +67,7 @@ import { SlideToggleComponent } from './slide-toggle/slide-toggle.component';
     ProveedoresComponent,
     ProveedorAddDialog,
     ReportesComponent,
+    VerPedidoComponent,
     TabsComponent,
     StepperComponent,
     ExpansionComponent,

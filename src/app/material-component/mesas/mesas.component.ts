@@ -2,11 +2,9 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MesasService } from '../../services/mesas.service';
 import { Mesa } from 'src/app/interfaces/Imodels';
-
-export interface DialogDetalleData {
-  noMesa: number;
-  descripcion: string;
-}
+import { PedidoService } from 'src/app/services/pedido.service';
+import { MesaDetalleDialog } from './mesadetalle/mesa-detalle-dialog.component';
+import { VerPedidoComponent } from '../pedido/verPedido/verpedido.component';
 
 @Component({
   selector: 'app-mesas',
@@ -16,9 +14,11 @@ export interface DialogDetalleData {
 export class MesasComponent implements OnInit {
 
   Mesas: Mesa[];
+  Pedidos: any[];
 
   constructor(
     private mesasService: MesasService,
+    private pedidoService: PedidoService,
     public detalleDialog: MatDialog
   ) { }
 
@@ -26,35 +26,29 @@ export class MesasComponent implements OnInit {
     this.mesasService.getMesas().subscribe((mesas: Mesa[]) => {
       this.Mesas = mesas;
     });
+
+    this.pedidoService.getPedidos().subscribe((res: any) => {
+      this.Pedidos = res;
+    });
   }
 
   mostrarMesaDetalle(noMesa: number, descripcion: string) {
-    const detalleDialogRef = this.detalleDialog.open(MesaDetalleDialog, {
-      width: '700px',
-      height: '400px',
-      data: {noMesa, descripcion}
+    const pedidoMesa = this.Pedidos.filter((el: any) => el.MesaNumero === noMesa);
+
+    const verpedidodetalle = this.detalleDialog.open(MesaDetalleDialog, {
+      width: '600px',
+      height: '492px',
+      data: {noMesa, pedidoMesa}
     });
 
-    detalleDialogRef.afterClosed().subscribe(result => {
-      console.log(result);
+    // const detalleDialogRef = this.detalleDialog.open(MesaDetalleDialog, {
+    //   width: '600px',
+    //   height: '492px',
+    //   data: {noMesa, descripcion, pedidoMesa}
+    // });
+
+    verpedidodetalle.afterClosed().subscribe(result => {
+
     });
-  }
-}
-
-// Dialogo para mostrar los detalles de la mesa
-
-@Component({
-  selector: 'app-mesa-detalle-dialog',
-  templateUrl: './mesa-detalle-dialog.component.html',
-  styleUrls: ['./mesa-detalle-dialog.component.scss']
-})
-export class MesaDetalleDialog {
-  constructor(
-    public dialogRef: MatDialogRef<MesaDetalleDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogDetalleData
-  ) {}
-
-  onNoClick(): void {
-    this.dialogRef.close();
   }
 }
